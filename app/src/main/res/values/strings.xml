@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">timeline-app</string>
+    <string name="github_username_hint">Enter a github username</string>
+    <string name="generate_button">Generate</string>
+    <string name="heading_textview">Github Timeline</string>
+</resources>
