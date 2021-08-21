@@ -4,11 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
@@ -41,7 +39,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         return dataModelArrayList.size();
     }
 
-
     public void updateList(ArrayList<AppModel> updateList) {
         dataModelArrayList = updateList;
         notifyDataSetChanged();
@@ -49,11 +46,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, description, createdAt;
-        EditText username;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            username = itemView.findViewById(R.id.usernameEditText);
             name = itemView.findViewById(R.id.nameTextView);
             description = itemView.findViewById(R.id.descriptionTextView);
             createdAt = itemView.findViewById(R.id.createdOnTextView);

@@ -14,16 +14,16 @@ import retrofit2.Response;
 
 public class AppRepository {
 
-    private final MutableLiveData<ArrayList<AppModel>> allRepos;
-    private final ArrayList<AppModel> repoList;
+    private MutableLiveData<ArrayList<AppModel>> allRepos;
+    private ArrayList<AppModel> repoList;
 
     public AppRepository(Application application) {
-        allRepos = new MutableLiveData<>();
-        repoList = new ArrayList<>();
     }
 
     public MutableLiveData<ArrayList<AppModel>> callAPI(String user) {
         Call<ResponseBody> call = RetrofitClient.getInstance().getapi().repository(user);
+        allRepos = new MutableLiveData<>();
+        repoList = new ArrayList<>();
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -42,13 +42,19 @@ public class AppRepository {
                     } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
+                }
+            /*  if no data is retrieved allRepos should be null in order
+                to set an EditText error in the MainActivity   */
+                if (repoList.isEmpty()){
+                    allRepos.setValue(null);
+                } else {
                     allRepos.setValue(repoList);
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                allRepos.postValue(null);
+                allRepos.setValue(null);
                 System.out.println("t.getMessage() = " + t.getMessage());
             }
         });

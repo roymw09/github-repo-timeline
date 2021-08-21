@@ -2,7 +2,6 @@ package com.example.timeline_app;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,30 +12,24 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
-    Adapter adapter;
-    RecyclerView recyclerView;
-    AppViewModel appViewModel;
-    ArrayList<AppModel> modelRecyclerArrayList;
-    Button generate;
     ActivityMainBinding binding;
+    AppViewModel appViewModel;
+    RecyclerView recyclerView;
+    ArrayList<AppModel> modelRecyclerArrayList;
+    Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         appViewModel = new ViewModelProvider(this).get(AppViewModel.class);
-        binding.setAppViewModel(appViewModel);
-
-        generate = findViewById(R.id.generateButton);
         recyclerView = findViewById(R.id.recycler_view);
         modelRecyclerArrayList = new ArrayList<>();
 
-        initRecycler();
+        binding.setAppViewModel(appViewModel);
+        binding.generateButton.setOnClickListener(this::displayData);
 
-        generate.setOnClickListener( (View v) -> {
-            refreshRecyclerArrayList();
-            displayData(v);
-        } );
+        initRecycler();
     }
 
     private void initRecycler() {
@@ -47,14 +40,14 @@ public class MainActivity extends AppCompatActivity{
 
     private void displayData(View v) {
         appViewModel.loadData().observe(this, appModels -> {
-            if (appModels != null) {
+            if (appModels == null) {
+                binding.usernameEditText.setError("User not found! Make sure you have an \ninternet connection" +
+                        "and your spelling is correct.");
+            } else {
                 modelRecyclerArrayList = appModels;
                 adapter.updateList(modelRecyclerArrayList);
             }
         });
-    }
-
-    private void refreshRecyclerArrayList() {
         modelRecyclerArrayList.clear();
     }
 }
