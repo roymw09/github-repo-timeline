@@ -1,6 +1,6 @@
 package com.example.timeline_app;
 
-public class AppModel {
+public class AppModel implements Comparable<AppModel>{
 
     private String name;
     private String description;
@@ -19,7 +19,12 @@ public class AppModel {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        if (description.equals("null")) {
+            this.description = "No description";
+        }
+        else {
+            this.description = description;
+        }
     }
 
     public String getCreated_At() {
@@ -28,5 +33,10 @@ public class AppModel {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+
+    @Override
+    public int compareTo(AppModel o) {
+        return o.getCreated_At().compareTo(getCreated_At()); // used in the MainActivity to sort modelRecyclerArrayList by date
     }
 }

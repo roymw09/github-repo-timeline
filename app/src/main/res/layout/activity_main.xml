@@ -2,11 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="appViewModel"
             type="com.example.timeline_app.AppViewModel" />
     </data>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,19 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".View.MainActivity">
-
-            <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:lineSpacingExtra="8sp"
-                android:text="@string/heading_textview"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/usernameEditText"
@@ -51,8 +40,9 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:text="@string/generate_button"
-                android:textSize="18sp"
-                />
+                android:background="@android:color/background_dark"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -61,7 +51,9 @@
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
                 tools:listitem="@layout/row_layout" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 </layout>

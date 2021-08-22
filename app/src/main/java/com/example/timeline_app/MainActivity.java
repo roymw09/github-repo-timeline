@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.timeline_app.databinding.ActivityMainBinding;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -41,10 +42,11 @@ public class MainActivity extends AppCompatActivity{
     private void displayData(View v) {
         appViewModel.loadData().observe(this, appModels -> {
             if (appModels == null) {
-                binding.usernameEditText.setError("User not found! Make sure you have an \ninternet connection" +
-                        "and your spelling is correct.");
+                binding.usernameEditText.setError("User not found! Check your spelling and confirm that you " +
+                        "have a valid internet connection");
             } else {
                 modelRecyclerArrayList = appModels;
+                Collections.sort(modelRecyclerArrayList); // sort by date
                 adapter.updateList(modelRecyclerArrayList);
             }
         });
