@@ -11,7 +11,7 @@ import com.example.timeline_app.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     AppViewModel appViewModel;
@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity{
 
         binding.setAppViewModel(appViewModel);
         binding.generateButton.setOnClickListener(this::displayData);
-
         initRecycler();
     }
 

@@ -37,6 +37,10 @@ public class AppRepository {
                             modelRecycler.setName(dataObj.getString("name"));
                             modelRecycler.setDescription(dataObj.getString("description"));
                             modelRecycler.setCreated_at(dataObj.getString("created_at"));
+                            modelRecycler.setForks(dataObj.getString("forks"));
+                            modelRecycler.setOpen_issues(dataObj.getString("open_issues"));
+                            modelRecycler.setWatchers(dataObj.getString("watchers"));
+                            modelRecycler.setUrl(dataObj.getString("html_url"));
                             repoList.add(modelRecycler);
                         }
                     } catch (JSONException | IOException e) {

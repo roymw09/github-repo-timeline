@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="8dp"
     app:cardCornerRadius="12dp"
     android:elevation="3dp"
@@ -22,7 +23,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
             android:textSize="20sp"
-            android:text="Name"
+            android:text="@string/name_text"
             android:layout_centerHorizontal="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -32,10 +33,40 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="3dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_below="@+id/nameTextView"
             android:layout_centerHorizontal="true"
-            android:text="date" />
+            android:text="@string/createdOn_text" />
+
+        <TextView
+            android:id="@+id/forksOnTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/createdOnTextView"
+            android:text="@string/forks_text" />
+
+        <TextView
+            android:id="@+id/openIssuesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/forksOnTextView"
+            android:text="@string/openIssues_text" />
+
+        <TextView
+            android:id="@+id/watchersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/openIssuesTextView"
+            android:text="@string/watchers_text" />
 
         <TextView
             android:id="@+id/descriptionTextView"
@@ -43,10 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="3dp"
-            android:layout_marginBottom="5dp"
-            android:layout_below="@+id/createdOnTextView"
-            android:layout_centerHorizontal="true"
-            android:text="description" />
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/watchersTextView"
+            android:text="@string/description_text" />
 
     </RelativeLayout>
 

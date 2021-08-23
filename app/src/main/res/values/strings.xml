@@ -3,4 +3,10 @@
     <string name="github_username_hint">Enter a github username</string>
     <string name="generate_button">Search</string>
     <string name="heading_textview">Github Timeline</string>
+    <string name="name_text">Name</string>
+    <string name="description_text">description</string>
+    <string name="createdOn_text">created on</string>
+    <string name="forks_text">Forks: %1$s</string>
+    <string name="openIssues_text">Open Issues: %1$s</string>
+    <string name="watchers_text">Watchers: %1$s</string>
 </resources>
